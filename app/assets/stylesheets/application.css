@@ -17,3 +17,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.menu_link {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: black;
+}
