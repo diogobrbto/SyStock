@@ -1,5 +1,6 @@
 <div>Products
-    <li><a href="#">New Product</a></li>
-    <li><a href="#">List Product</a></li>
-    <li><a href="#">New Categorie</a></li>
+    <li><%= link_to "New Product", new_product_path, class: "nav-link" %></li>
+    <li><%= link_to "List Product", show_product_path, class: "nav-link" %></li>
+    <li><%= link_to "New Categorie", new_categorie_path, class: "nav-link" %></li>
+    <li><%= link_to "List Categories", show_categorie_path, class: "nav-link" %></li>
 </div>
