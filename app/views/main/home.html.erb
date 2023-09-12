@@ -1,8 +1,7 @@
 <% if current_user %>
-<div>Products
-    <li><%= link_to "New Product", new_product_path , class: "menu-link" %></li>
-    <li><%= link_to "List Product", products_path, class: "menu-link" %></li>
-    <li><%= link_to "New Categorie", new_category_path, class: "menu-link" %></li>
-    <li><%= link_to "List Categories", categories_path, class: "menu-link" %></li>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700">
+      <h1 class="text-3xl p-5 text-white-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white whitespace-nowrap">Welcome</h1>
+    </div>
 </div>
 <% end %>
