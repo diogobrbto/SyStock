@@ -1,2 +1,61 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<% if current_user %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700">
+      <h1 class="text-3xl p-5 text-black uppercase bg-gray-50 dark:bg-gray-700 dark:text-white whitespace-nowrap">Edit Product</h1>
+
+      <%= form_for @product do |form| %>
+
+        <% if @product.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+            <ul>
+              <% @product.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div>
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+        </div>
+
+        <div>
+          <%= form.label :description %><br>
+          <%= form.text_area :description %>
+        </div>
+
+        <div>
+          <%= form.label :value %><br>
+          <%= form.text_field :value, step: "0.01", placeholder: "0.00" %>
+        </div>
+
+        <div>
+          <%= form.label :category_id, "Category" %><br>
+          <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Select a Category" %>
+        </div>
+
+        <div>
+          <%= form.label :quantities %><br>
+          <%= form.number_field :quantities , step: 1 %>
+        </div>
+
+        <div>
+          <% if @product.image.attached? %>
+            <%= image_tag @product.image, :class => "my-3 max-w-[250px]" %>
+          <% else %>
+            <p>No image available</p>
+          <% end %>
+          <%= form.label :image_id %><br>
+          <%= form.file_field :image_id, accept: 'image/png,image/jpeg', allow_blank: true %>
+        </div>
+
+        <div>
+          <%= form.submit 'Update Product', :class => "mt-3 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"%>
+        </div>
+      <% end %>
+
+   </div>
+</div>
+<% end %>

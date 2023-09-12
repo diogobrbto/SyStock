@@ -1,2 +1,20 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<% if current_user %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 border-gray-200 rounded-lg dark:border-gray-700">
+    <h1 class="text-3xl p-5 text-black uppercase bg-gray-50 dark:bg-gray-700 dark:text-white whitespace-nowrap">New Category</h1>
+
+    <%= form_with model: @category do |form| %>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% @category.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+      <div>
+        <%= form.submit 'Create Category', :class => "mt-3 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

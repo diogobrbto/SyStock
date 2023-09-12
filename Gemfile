@@ -78,3 +78,5 @@ gem 'devise'
 gem 'sassc'
 
 gem 'jquery-rails'
+gem "tailwindcss-rails", "~> 2.0"
+gem 'foreman'
