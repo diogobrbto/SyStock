@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products
 
   namespace :api do
-    resources :products, only: [:index, :show]
+      resources :products, only: [:index, :show]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
